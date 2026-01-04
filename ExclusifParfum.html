@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Exclusif Parfum</title>
+  <!-- Bloquea zoom de alejar/acercar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background: #000;
+      color: #fff;
+    }
+
+    h3{
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      flex: 1 0 auto;
+      max-width: 150px;
+    }
+
+    nav button:not(.active):hover {
+      background: #555;
+    }
+
+    nav button.active {
+      background: #f39c12;
+      color: #000;
+    }
+
+    section {
+      padding: 20px;
+      display: none; 
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .products-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .product-card {
+      background: #151515;
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .product-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.7);
+      border-color: #444;
+      cursor: pointer;
+    }
+
+    .product-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #222;
+      color: #888;
+    }
+
+    .products-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px 0;
+  grid-auto-flow: dense; 
+}
+
+/* Tarjetas */
+.product-card {
+  background: #151515;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.product-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.7);
+  border-color: #444;
+  cursor: pointer;
+}
+
+.product-img img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MOBILE: scroll horizontal independiente */
+@media (max-width: 768px) {
+  .products-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .products-row::-webkit-scrollbar {
+    display: none; /* oculta scroll en webkit */
+  }
+
+  .products-row > .product-card {
+    flex: 0 0 auto;
+    min-width: 180px;
+    scroll-snap-align: start;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="ExclusifParfum - Editado.jpg" alt="Exclusif Parfum" class="logo">
+  </div>
+  <nav>
+    <button class="active" onclick="showSection('decants')">Decants</button>
+    <button onclick="showSection('completos')">Completos</button>
+    <button onclick="showSection('arabes')">Árabes</button>
+  </nav>
+</header>
+
+<!-- ================= DECANTS ================= -->
+<section id="decants" class="active">
+  <!-- Fila 1 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/10/Le-Beau-Le-Parfum-de-Jean-Paul-Gaultier-Eau-de-Parfum-Intense.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Beau <br>Le Parfum</h3>
+      <div class="price">Bs 208.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/05/Le-Male-Elixir-de-Jean-Paul-Gaultier-Parfum.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Male <br>Elixir</h3>
+      <div class="price">Bs 215.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://beautyhouse.com/cdn/shop/files/01deqapmes.png?v=1762297303&width=1600" width="160" height="180">
+      <h3>Valentino <br> Born In Roma <br>Intense</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://profumerialanza.com/cdn/shop/files/paco-rabanne-invictus-victory-elixir-parfum-100out.png?v=1744726763&width=900" width="160" height="180">
+      <h3>Invictus <br> Victory <br> Elixir</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+
+  <!-- Fila 2 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://res.cloudinary.com/azzaro-parfums/image/upload/c_fill,w_668,h_742/Azzarodetoure.png" width="160" height="180">
+      <h3>Azarro <br> The Most Wanted <br> Intense</h3>
+      <div class="price">Bs 192.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://eu.fragrance.com/media/catalog/product/G/0/G0013457297_9_b22f.png?optimize=medium&fit=bounds&height=512&width=460&canvas=460:512" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Ice</h3>
+      <div class="price">Bs 127.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://imrasasi.com/cdn/shop/files/rasasi-hawas-elixir-edp-unisex-100ml.png?v=1764834164&width=1080" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Elixir</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://media.ulta.com/i/ulta/2578197?w=200&h=200&fmt=auto" width="160" height="180">
+      <h3>Dior <br> Sauvage <br> EDT</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPLETOS ================= -->
+<section id="completos">
+  <!-- Fila 1 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/10/Le-Beau-Le-Parfum-de-Jean-Paul-Gaultier-Eau-de-Parfum-Intense.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Beau <br>Le Parfum</h3>
+      <div class="price">Bs 208.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/05/Le-Male-Elixir-de-Jean-Paul-Gaultier-Parfum.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Male <br>Elixir</h3>
+      <div class="price">Bs 215.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://beautyhouse.com/cdn/shop/files/01deqapmes.png?v=1762297303&width=1600" width="160" height="180">
+      <h3>Valentino <br> Born In Roma <br>Intense</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://profumerialanza.com/cdn/shop/files/paco-rabanne-invictus-victory-elixir-parfum-100out.png?v=1744726763&width=900" width="160" height="180">
+      <h3>Invictus <br> Victory <br> Elixir</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+
+  <!-- Fila 2 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://res.cloudinary.com/azzaro-parfums/image/upload/c_fill,w_668,h_742/Azzarodetoure.png" width="160" height="180">
+      <h3>Azarro <br> The Most Wanted <br> Intense</h3>
+      <div class="price">Bs 192.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://eu.fragrance.com/media/catalog/product/G/0/G0013457297_9_b22f.png?optimize=medium&fit=bounds&height=512&width=460&canvas=460:512" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Ice</h3>
+      <div class="price">Bs 127.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://imrasasi.com/cdn/shop/files/rasasi-hawas-elixir-edp-unisex-100ml.png?v=1764834164&width=1080" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Elixir</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://media.ulta.com/i/ulta/2578197?w=200&h=200&fmt=auto" width="160" height="180">
+      <h3>Dior <br> Sauvage <br> EDT</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ÁRABES ================= -->
+<section id="arabes">
+  <!-- Fila 1 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/10/Le-Beau-Le-Parfum-de-Jean-Paul-Gaultier-Eau-de-Parfum-Intense.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Beau <br>Le Parfum</h3>
+      <div class="price">Bs 208.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://elatlasdelperfume.com/wp-content/uploads/2025/05/Le-Male-Elixir-de-Jean-Paul-Gaultier-Parfum.webp" width="160" height="180">
+      <h3>Jean Paul Gaultier <br>Le Male <br>Elixir</h3>
+      <div class="price">Bs 215.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://beautyhouse.com/cdn/shop/files/01deqapmes.png?v=1762297303&width=1600" width="160" height="180">
+      <h3>Valentino <br> Born In Roma <br>Intense</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://profumerialanza.com/cdn/shop/files/paco-rabanne-invictus-victory-elixir-parfum-100out.png?v=1744726763&width=900" width="160" height="180">
+      <h3>Invictus <br> Victory <br> Elixir</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+
+  <!-- Fila 2 -->
+  <div class="products-row">
+    <div class="product-card">
+      <img src="https://res.cloudinary.com/azzaro-parfums/image/upload/c_fill,w_668,h_742/Azzarodetoure.png" width="160" height="180">
+      <h3>Azarro <br> The Most Wanted <br> Intense</h3>
+      <div class="price">Bs 192.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://eu.fragrance.com/media/catalog/product/G/0/G0013457297_9_b22f.png?optimize=medium&fit=bounds&height=512&width=460&canvas=460:512" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Ice</h3>
+      <div class="price">Bs 127.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://imrasasi.com/cdn/shop/files/rasasi-hawas-elixir-edp-unisex-100ml.png?v=1764834164&width=1080" width="160" height="180">
+      <h3>Rasasi <br> Hawas <br> Elixir</h3>
+      <div class="price">Bs 234.00</div>
+    </div>
+    <div class="product-card">
+      <img src="https://media.ulta.com/i/ulta/2578197?w=200&h=200&fmt=auto" width="160" height="180">
+      <h3>Dior <br> Sauvage <br> EDT</h3>
+      <div class="price">Bs 217.00</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Exclusif Parfum
+</footer>
+
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+
+    // Botón activo
+    const buttons = document.querySelectorAll('nav button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`nav button[onclick="showSection('${id}')"]`).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
